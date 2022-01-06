@@ -16,6 +16,7 @@ button {
 
     /* positioning */
     position: relative;
+    margin-top: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,7 +33,7 @@ button:hover {
     position: absolute;
     bottom: 0;
     top: 0;
-    background: rgb(127,127,127);
+    background: rgb(140, 184, 221);
     background: -moz-linear-gradient(top,  rgb(140, 184, 221) 0%, rgb(14, 90, 126) 100%);
     background: -webkit-linear-gradient(top,  rgb(140, 184, 221) 0%, rgb(14, 90, 126) 100%);
     background: linear-gradient(to bottom,  rgb(140, 184, 221) 0%, rgb(14, 90, 126) 100%);
