@@ -1,4 +1,5 @@
 function createImageList() {
+    // creating list of images gotten from a file
     let listImage = '<ul class="images">';
     for (let image = 0; image < wolves.length; image++) {
         if (image === 0) {
@@ -12,18 +13,27 @@ function createImageList() {
 }
 
 function getCurrentSlide() {
+    // getting id of <li> that is seen on the page now
     return document.querySelector('.current').id;
 }
 
-function getNextSlide(curr) {
-    return (++curr % wolves.length);
-}
+function changeSlide(direction) {
+    // changing slide depending on where we are goung (back / forward)
+    let current = getCurrentSlide();
+    let changeTo = null;
 
-function getPrevSlide(curr) {
-    return (--curr % wolves.length);
+    document.querySelectorAll('.images li')[current].className = 'slide';
+    if (direction == 'back') {
+        changeTo = (wolves.length + --current) % wolves.length;
+    } else if (direction == 'next') {
+        changeTo = ++current % wolves.length;
+    } else {
+        changeTo = 0;
+    }
+
+    document.querySelectorAll('.images li')[changeTo].className = 'current';
 }
 
 document.addEventListener("DOMContentLoaded", function(event) { 
-    let res = createImageList();
-    document.getElementById('list-images').innerHTML = res;
+    document.getElementById('list-images').innerHTML = createImageList();
   });
